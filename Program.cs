@@ -11,9 +11,9 @@ app.MapGet("/test", async context =>
     ];
     await Task.WhenAll(tasks);
     
-    static Task DoWork(HttpContext context)
+    static async Task DoWork(HttpContext context)
     {
-        return Task.Run(async () =>
+        await Task.Run(async () =>
         {
             await Task.Delay(100);
             //try { context!.User.ToString(); } catch { }
